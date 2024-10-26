@@ -28,8 +28,27 @@ O script user data foi um requisito opcional para o projeto, entretanto ressalto
 
 Devido a extensão do script, não vou deixar ele em cópia nesse documento, porém vou detalhar brevemente sobre o que ele faz.
 
-Em poucas palavras, ao iniciar a instância, o script faz uma atualização completa, no comando seguinte ele instala o Docker e Docker compose, declarando alguns repositórios:
+Em poucas palavras, ao iniciar a instância, o script faz uma atualização completa, e no comando seguinte ele instala o Docker e Docker compose, declarando alguns repositórios:
 
 ![image](https://github.com/user-attachments/assets/2c0b0094-5e7d-4923-bc67-ed6c840c531a)
 
+Nos próximos comandos, o script instala o client NFS para que a instância possa conectar com o EFS da AWS, e monta automaticamente o EFS. E adicionando ao fstab para a instância sempre ser iniciada com o caminho montado.
+
+![image](https://github.com/user-attachments/assets/40298159-bf71-4878-b210-432626457e62)
+
+Após isso, ele configura o arquivo ```docker-compose.yml``` para substituir o existente e executar o contêiner com o Wordpress configurado com os devidos bancos de dados, usuário e senha.
+
+![image](https://github.com/user-attachments/assets/b8b2999d-3397-4e0e-ae80-9b83f91634c5)
+
+No próximo comando do script ele executa o ```docker-compose.yml``` para enfim fazer o deploy do serviço.
+
+![image](https://github.com/user-attachments/assets/d6f05620-621f-4efc-bc89-ef82d1b5a2ea)
+
+## Configurando Auto Scaling Group e Classic Load Balancer
+
+Agora que temos a instância configurada com user data e o RDS com MySQL com com o database para o Wordpress criado, vamos configurar uma alta disponibilidade e redundância de requisições providas pelo Load Balancer através do Round Robin. Primeiro, precisamos configurar o CLB, criando ele como internet-facing, selecionando a VPC e duas AZs para a redundância, juntamente com o listener e o caminho onde será feito o health check para verificar o funcionamento da aplicação. E por último, selecionando a instância onde está o Wordpress.
+
+Dessa forma o LB estará configurado e terá as duas AZs para redundância das instâncias. E para configurar o deploy delas, vamos configurar agora o Auto Scaling Group. Começando criando um launch template, que podemos gerar a partir da nossa instância existente, depois selecionando as subnets com as devidas AZs onde elas ficarão disponíveis. Por fim, podemos selecionar um método de notificação quando houver o deploy de uma nova instância.
+
+Abaixo como elas ficarão configuradas:
 
