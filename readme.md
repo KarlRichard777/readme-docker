@@ -1,4 +1,4 @@
-  # PROJETO WORDPRESS (COMPASS-UOL)
+  # PROJETO DOCKER - WORDPRESS (COMPASS-UOL)
   ##### Por Karl Richard
   ## Introdução
 
@@ -52,3 +52,16 @@ Dessa forma o LB estará configurado e terá as duas AZs para redundância das i
 
 Abaixo como elas ficarão configuradas:
 
+![image](https://github.com/user-attachments/assets/37c37364-6a61-4ee1-88dc-628e8c38013b)
+
+Este é o Load Balancer Classic, que como está mostrando na imagem, podemos ver o tipo e as diferentes subnets que ele está configurado para provisionar as instâncias em cada uma delas.
+
+![image](https://github.com/user-attachments/assets/e0b114a4-20f3-49f2-8fa4-8f88bf5fc573)
+
+Este é como ficará o Auto Scaling Group, que como está descrito na imagem, podemos selecionar a quantidade mínima e máxima, que no caso está zero pois no momento da criação o ambiente é de homologação, e também por trás dessa imagem temos o launch template que criamos a partir da instância feita inicialmente.
+
+## Conclusão
+
+Neste projeto em Docker, apesar de ser um projeto simples, todavia, na prática, para configurar um ambiente resiliênte e com alta disponibilidade como descrito no diagrama desse projeto, é mais complexo do que aparenta. Esse projeto finaliza nesse ponto do ambiente, porém a partir daqui tive insights para novos ambientes e novas formas de provisioná-los com maior eficiência e com entrega contínua das aplicações sem haver a necessidade de manipulação por usuário, o que é de grande valor, pessoalmente dizendo.
+
+A documentação que estão lendo nesse momento tem descrito brevemente sobre como fazer o deploy desse ambiente, porém ainda com um detalhamento mais específico nela, não transmitiria a complexidade que há nessa configuração de aparência simples. Esse projeto serviu e servirá de uma experiência valorosa na minha vida.
