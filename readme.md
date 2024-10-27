@@ -62,6 +62,6 @@ Este é como ficará o Auto Scaling Group, que como está descrito na imagem, po
 
 ## Conclusão
 
-Neste projeto em Docker, apesar de ser um projeto simples, todavia, na prática, para configurar um ambiente resiliênte e com alta disponibilidade como descrito no diagrama desse projeto, é mais complexo do que aparenta. Esse projeto finaliza nesse ponto do ambiente, porém a partir daqui tive insights para novos ambientes e novas formas de provisioná-los com maior eficiência e com entrega contínua das aplicações sem haver a necessidade de manipulação por usuário, o que é de grande valor, pessoalmente dizendo.
+Neste projeto em Docker, apesar de ser simples, na prática, para configurar um ambiente resiliênte e com alta disponibilidade como descrito no diagrama desse projeto, é mais complexo do que aparenta. Esse projeto finaliza nesse ponto do ambiente, porém a partir daqui tive insights para novos ambientes e novas formas de provisioná-los com maior eficiência e com entrega contínua das aplicações sem haver a necessidade de manipulação por usuário, o que é de grande valor, pessoalmente dizendo.
 
 A documentação que estão lendo nesse momento tem descrito brevemente sobre como fazer o deploy desse ambiente, porém ainda com um detalhamento mais específico nela, não transmitiria a complexidade que há nessa configuração de aparência simples. Esse projeto serviu e servirá de uma experiência valorosa na minha vida.
